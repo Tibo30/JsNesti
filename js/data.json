@@ -1,0 +1,49 @@
+{
+"ingredient": [
+{
+"ingredientId": 1,
+"name": "Banana",
+"url": "./picture/banane.jpg"
+},
+{
+"ingredientId": 2,
+"name": "Strawberry",
+"url": "./picture/strawberry.jpg"
+},
+{
+"ingredientId": 3,
+"name" : "Black Chocolate",
+"url":"./picture/blackchocolate.jpg"
+},
+{
+"ingredientId": 4,
+"name": "Milk",
+"url": "./picture/milk.jpg"
+},
+{
+"ingredientId": 5,
+"name": "Orange",
+"url": "./picture/orange.jpg"
+},
+{
+"ingredientId": 6,
+"name": "Lemon",
+"url": "./picture/lemon.jpg"
+},
+{
+"ingredientId": 7,
+"name": "White Chocolate",
+"url": "./picture/whitechocolate.jpg"
+},
+{
+"ingredientId": 8,
+"name": "Eggs",
+"url": "./picture/eggs.jpg"
+},
+{
+"ingredientId": 9,
+"name": "Coffee",
+"url": "./picture/coffee.jpg"
+}
+]
+}
