@@ -42,9 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var myObj = JSON.parse(this.responseText);
-            console.log("test1");
             myObj.forEach(element => {
-                console.log("test2");
                 var card = new Cards(element.ingredientID, element.name, element.url)
                 card.create();
             });
@@ -63,11 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
     xmlhttp.send();
 
     function swipeLeft() {
-        console.log(event.currentTarget);
         var currentCard = event.currentTarget.parentNode.parentNode;
-        var cardNext = currentCard.previousSibling.previousSibling;
-        var thirdCard = cardNext.previousSibling.previousSibling;
-        var fourthCard = thirdCard.previousSibling.previousSibling;
+        var cardNext = currentCard.previousSibling;
+        var thirdCard = cardNext.previousSibling;
+        var fourthCard = thirdCard.previousSibling;
         currentCard.classList.add("swipeLeft");
         cardNext.classList.add("currentCard");
         cardNext.classList.remove("cardNext");
@@ -82,11 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function swipeRight() {
-        console.log(event.currentTarget.parentNode.parentNode);
         var currentCard = event.currentTarget.parentNode.parentNode;
-        var cardNext = currentCard.previousSibling.previousSibling;
-        var thirdCard = cardNext.previousSibling.previousSibling;
-        var fourthCard = thirdCard.previousSibling.previousSibling;
+        var cardNext = currentCard.previousSibling;
+        var thirdCard = cardNext.previousSibling;
+        var fourthCard = thirdCard.previousSibling;
         currentCard.classList.add("swipeRight");
         cardNext.classList.add("currentCard");
         cardNext.classList.remove("cardNext");
@@ -102,31 +98,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-/*
-function htmlCode(){
-
-    var textHtml = "";
-    for (let i = 0; i < Object.keys(mydata).length; i++) {
-        if (i == 0) {
-            textHtml += "<div class=card currentCard>";
-        } else if (i == 1) {
-            textHtml += "<div class=card cardNext>";
-        } else if (i == 1) {
-            textHtml += "<div class=card thirdCard>";
-        } else {
-            textHtml += "<div class=card>";
-        }
-        textHtml += "<h4>" + mydata[i].name + "<img class=image src=" + mydata[i].url + " alt=Picture of a " + mydata[i].name + "><div class=buttons>< button class=btnLeft onclick = swipeLeft() > X < br > Swipe</button ><button class=btnRight onclick=swipeRight()> ✓ <br> Keep</button> </div></div > ";
-    }
-    document.querySelector("#containerCard").innerHTML = textHtml;
-}
-
-
-
-
-
-
-
-*/
 
 
