@@ -18,7 +18,7 @@
 body{
 background-attachment: fixed;
 background-color: rgb(255, 255, 255);
-background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("https://agnes.needemand.com/nesti-site/img/bg.jpg");
+background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("/assets/pictures/background.jpg");
 background-position: 50% 50%;
 background-position-x: 50%;
 background-position-y: 50%;
@@ -116,7 +116,7 @@ button:hover{
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
-    box-shadow: 0 0 40px #000;
+    border: 1px solid black;
     transform-origin: 0 0;
     width: 15rem;
     height: 370px;
