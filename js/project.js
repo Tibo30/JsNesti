@@ -69,26 +69,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             var right = document.querySelectorAll(".buttonLike");
             right.forEach(element => {
-                element.addEventListener('click', (e) => swipeRight())
+                element.addEventListener('click', (e) => swipe("Right"))
             })
 
             var left = document.querySelectorAll(".buttonDislike");
             left.forEach(element => {
-                element.addEventListener('click', (e) => swipeLeft())
+                element.addEventListener('click', (e) => swipe("Left"))
             })
         }
     };
     xmlhttp.open("GET", "./js/ingredient.json", true);
     xmlhttp.send();
 
-    function swipeLeft() {
-        swipe("Left");
-    }
-
-
-    function swipeRight() {
-        swipe("Right");
-    }
 
     function swipe(leftOrRight){
         var currentCard = event.currentTarget.parentNode.parentNode;
@@ -123,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
         currentCard.classList.add(direction);
         document.addEventListener('animationend', () => {
             currentCard.classList.remove("currentCard");
-            currentCard.style.visibility="hidden";
         });
 
     }
