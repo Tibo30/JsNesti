@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-attachment: fixed;
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("/assets/pictures/background.jpg");
+    background-position: 50% 50%;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: cover, cover;
+    overflow: hidden;
+}
+
+#container {
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    text-align: center;
+    margin: 1rem auto 2rem auto;
+}
+
+#project {
+    color: #C4580E;
+    font-family: Dosis700;
+    font-size: 3rem;
+}
+
+#nesti {
+    color: #01AF92;
+    font-family: DosisRegular;
+    font-size: 4rem;
+}
+
+h4 {
+    font-family: DosisRegular;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+button:hover {
+    scale: 1.025;
+}
+
+.swipeLeft {
+    animation: swipe-left 0.6s ease-in-out;
+    z-index: 1;
+    /* opacity: 0.7;*/
+}
+
+.swipeRight {
+    animation: swipe-right 0.6s ease-in-out;
+    z-index: 1;
+    /*  opacity: 0;*/
+}
+
+.cardIngredient button {
+    height: 5rem;
+    width: 5rem;
+    border: 4px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.currentCard {
+    position: absolute;
+    z-index: 10;
+    opacity: 1;
+}
+
+.cardNext {
+    z-index: 5;
+    transform-origin: center;
+    transform: rotate(4deg);
+}
+
+.thirdCard {
+    z-index: 4;
+    transform-origin: center;
+    transform: rotate(-4deg);
+}
+
+#containerCard,
+#containerCard .cardIngredient {
+    width: 26rem;
+    height: 34rem;
+}
+
+.buttonDislike i {
+    bottom: 0.24rem;
+}
+
+.pictureDiv {
+    background-size: cover;
+    background-position: center;
+}
+
+.cardIngredient {
+    animation-fill-mode: forwards;
+}
+
+@keyframes swipe-left {
+    0% {
+        z-index: 100;
+        transform: translateY(0px) rotate(-4deg);
+    }
+    50% {
+        transform: translateX(-120%) rotate(-5deg) translateY(-40%);
+        opacity: 0.7;
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateX(0%) rotate(0) translateY(0%) scale(0.95);
+        opacity: 0;
+        z-index: -50;
+    }
+}
+
+@keyframes swipe-right {
+    0% {
+        z-index: 100;
+        transform: translateY(0px) rotate(4deg);
+    }
+    50% {
+        transform: translateX(120%) rotate(5deg) translateY(-40%);
+        opacity: 0.7;
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateX(0%) rotate(0) translateY(0%) scale(0.95);
+        opacity: 0;
+        z-index: -50;
+    }
+}

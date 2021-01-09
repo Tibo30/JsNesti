@@ -9,19 +9,32 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         create() {
-            var cont = document.querySelector('#containerCard');
-            var cardContent = document.createElement("div");
+            var containerCard = document.querySelector('#containerCard');
+            var cardIngredient = document.createElement("div");
             var title = document.createElement("h4");
             var titleText = document.createTextNode(this.name);
-            var picture = document.createElement("img");
-            picture.src = "./assets/pictures/" + this.url;
-            var button = document.createElement("div");
+            var pictureDiv = document.createElement("div");
+            pictureDiv.style["background-image"] = "url(assets/pictures/" + this.url + ")";
+            var buttonContainer = document.createElement("div");
             var buttonDislike = document.createElement("button");
+            var iconDislike = document.createElement("i");
             var buttonLike = document.createElement("button");
-            buttonDislike.innerHTML = " X  <br> Swipe";
-            buttonLike.innerHTML = " ✓  <br> Keep"
-            // rajouter nom de l'ingrédient en ID et faire un if dans les fonctions right et left à partir de l'avant avant avant dernier élément
-            cardContent.className += "card";
+            var iconLike = document.createElement("i");
+
+          // Add style in the various div
+          containerCard.className += "relative m-auto flex-col justify-center items-center";
+          cardIngredient.className += "cardIngredient absolute flex flex-col border-solid border-1 border-black text-center content-center bg-white z-50 items-center justify-around";
+          pictureDiv.className += "pictureDiv border-solid border-1 border-black w-10/12 h-3/4";
+          buttonContainer.className += "buttonContainer flex justify-around w-full";
+
+          // For the dislike button
+          buttonDislike.className += "buttonDislike text-red-500 bg-white rounded-full relative text-6xl border-solid border-1 border-black ";
+          iconDislike.className += "relative fa fa-times";
+
+          // For the like button
+          buttonLike.className += "buttonLike text-green-500 bg-white rounded-full relative text-6xl border-solid border-1 border-black";
+          iconLike.className += "fa fa-heart";
+
             cardContent.id += this.ingredientId;
             if (this.ingredientId == 1) {
                 cardContent.className += " currentCard";
@@ -30,37 +43,35 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (this.ingredientId == 3) {
                 cardContent.className += " thirdCard";
             }
-            picture.className += "image";
-            button.className += "buttons";
-            buttonDislike.className += "btnLeft";
-            buttonLike.className += "btnRight";
-
-            cont.prepend(cardContent);
-            cardContent.appendChild(title);
+            containerCard.prepend(cardIngredient);
+            cardIngredient.appendChild(title);
             title.appendChild(titleText);
-            cardContent.appendChild(picture);
-            cardContent.appendChild(button);
-            button.appendChild(buttonDislike);
-            button.appendChild(buttonLike);
-
+            cardIngredient.appendChild(pictureDiv);
+            cardIngredient.appendChild(buttonContainer);
+            buttonContainer.appendChild(buttonDislike);
+            buttonDislike.appendChild(iconDislike);
+            buttonContainer.appendChild(buttonLike);
+            buttonLike.appendChild(iconLike);
+            buttonDislike.setAttribute("aria-hidden", "true");
+            buttonLike.setAttribute("aria-hidden", "true");
         }
 
     }
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            myObj = JSON.parse(this.responseText);
+            var myObj = JSON.parse(this.responseText);
             myObj.forEach(element => {
-                var card = new Cards(element.ingredientId, element.name, element.url)
+                var card = new Cards(element.ingredientID, element.name, element.url)
                 card.create();
             });
-            var right = document.querySelectorAll(".btnRight");
+            var right = document.querySelectorAll(".buttonLike");
             right.forEach(element => {
                 element.addEventListener('click', (e) => swipeRight())
             })
 
-            var left = document.querySelectorAll(".btnLeft");
+            var left = document.querySelectorAll(".buttonDislike");
             left.forEach(element => {
                 element.addEventListener('click', (e) => swipeLeft())
             })
