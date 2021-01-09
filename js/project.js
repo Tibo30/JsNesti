@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+    var myObj = [];
+    var rightList=[];
     class Cards {
-        constructor(ingredientID, name, url) {
-            this.ingredientID = ingredientID;
+        constructor(ingredientId, name, url) {
+            this.ingredientId = ingredientId;
             this.name = name;
             this.url = url;
-
         }
 
         create() {
@@ -21,6 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
             buttonLike.innerHTML = " ✓  <br> Keep"
             // rajouter nom de l'ingrédient en ID et faire un if dans les fonctions right et left à partir de l'avant avant avant dernier élément
             cardContent.className += "card";
+            cardContent.id += this.ingredientId;
+            if (this.ingredientId == 1) {
+                cardContent.className += " currentCard";
+            } else if (this.ingredientId == 2) {
+                cardContent.className += " cardNext";
+            } else if (this.ingredientId == 3) {
+                cardContent.className += " thirdCard";
+            }
             picture.className += "image";
             button.className += "buttons";
             buttonDislike.className += "btnLeft";
@@ -37,13 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
-
+    
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            var myObj = JSON.parse(this.responseText);
+            myObj = JSON.parse(this.responseText);
             myObj.forEach(element => {
-                var card = new Cards(element.ingredientID, element.name, element.url)
+                var card = new Cards(element.ingredientId, element.name, element.url)
                 card.create();
             });
             var right = document.querySelectorAll(".btnRight");
@@ -61,41 +70,51 @@ document.addEventListener("DOMContentLoaded", function () {
     xmlhttp.send();
 
     function swipeLeft() {
-        var currentCard = event.currentTarget.parentNode.parentNode;
-        var cardNext = currentCard.previousSibling;
-        var thirdCard = cardNext.previousSibling;
-        var fourthCard = thirdCard.previousSibling;
-        currentCard.classList.add("swipeLeft");
-        cardNext.classList.add("currentCard");
-        cardNext.classList.remove("cardNext");
-        thirdCard.classList.add("cardNext");
-        thirdCard.classList.remove("thirdCard");
-        fourthCard.classList.add("thirdCard");
-        fourthCard.classList.remove("cardNext");
-        document.addEventListener('animationend', () => {
-            currentCard.classList.remove("currentCard")
-        });
+        swipe("Left");
     }
 
 
     function swipeRight() {
-        var currentCard = event.currentTarget.parentNode.parentNode;
-        var cardNext = currentCard.previousSibling;
-        var thirdCard = cardNext.previousSibling;
-        var fourthCard = thirdCard.previousSibling;
-        currentCard.classList.add("swipeRight");
-        cardNext.classList.add("currentCard");
-        cardNext.classList.remove("cardNext");
-        thirdCard.classList.add("cardNext");
-        thirdCard.classList.remove("thirdCard");
-        fourthCard.classList.add("thirdCard");
-        fourthCard.classList.remove("cardNext");
-        document.addEventListener('animationend', () => {
-            currentCard.classList.remove("currentCard")
-        });
+        swipe("Right");
     }
 
+    function swipe(leftOrRight){
+        var currentCard = event.currentTarget.parentNode.parentNode;
+        var cardNext;
+        var thirdCard;
+        var fourthCard;
+        if (leftOrRight=="Right"){
+           var ingredientAdd=currentCard.childNodes[0].textContent;
+           rightList.push(ingredientAdd);
+           console.log(rightList);
+        }
+        if (currentCard.id != (myObj.length)) {
+            if (currentCard.id == (myObj.length - 1)) {
+                cardNext = currentCard.previousSibling;
+            } else {
+                if (currentCard.id == (myObj.length - 2)) {
+                    cardNext = currentCard.previousSibling;
+                    thirdCard = cardNext.previousSibling;
+                } else {
+                    cardNext = currentCard.previousSibling;
+                    thirdCard = cardNext.previousSibling;
+                    fourthCard = thirdCard.previousSibling;
+                    fourthCard.classList.add("thirdCard");
+                }
+                thirdCard.classList.add("cardNext");
+                thirdCard.classList.remove("thirdCard");
+            }
+            cardNext.classList.add("currentCard");
+            cardNext.classList.remove("cardNext");
+        }
+        var direction="swipe"+leftOrRight;
+        currentCard.classList.add(direction);
+        document.addEventListener('animationend', () => {
+            currentCard.classList.remove("currentCard");
+            currentCard.style.visibility="hidden";
+        });
 
+    }
 });
 
 
