@@ -89,8 +89,8 @@ button:hover {
 
 #containerCard,
 #containerCard .cardIngredient {
-    width: 26rem;
-    height: 34rem;
+    width: 25vw;
+    height: 50vh;
 }
 
 .buttonDislike i {

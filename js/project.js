@@ -35,14 +35,15 @@ document.addEventListener("DOMContentLoaded", function () {
           buttonLike.className += "buttonLike text-green-500 bg-white rounded-full relative text-6xl border-solid border-1 border-black";
           iconLike.className += "fa fa-heart";
 
-            cardContent.id += this.ingredientId;
+          cardIngredient.id += this.ingredientId;
             if (this.ingredientId == 1) {
-                cardContent.className += " currentCard";
+                cardIngredient.className += " currentCard";
             } else if (this.ingredientId == 2) {
-                cardContent.className += " cardNext";
+                cardIngredient.className += " cardNext";
             } else if (this.ingredientId == 3) {
-                cardContent.className += " thirdCard";
+                cardIngredient.className += " thirdCard";
             }
+
             containerCard.prepend(cardIngredient);
             cardIngredient.appendChild(title);
             title.appendChild(titleText);
@@ -61,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var myObj = JSON.parse(this.responseText);
+            myObj = JSON.parse(this.responseText);
             myObj.forEach(element => {
-                var card = new Cards(element.ingredientID, element.name, element.url)
+                var card = new Cards(element.ingredientId, element.name, element.url)
                 card.create();
             });
             var right = document.querySelectorAll(".buttonLike");
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (leftOrRight=="Right"){
            var ingredientAdd=currentCard.childNodes[0].textContent;
            rightList.push(ingredientAdd);
-           console.log(rightList);
+           console.log(rightList)
         }
         if (currentCard.id != (myObj.length)) {
             if (currentCard.id == (myObj.length - 1)) {
