@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     var myObj = [];
-    var rightList=[];
+    var myObjRecipe = [];
+    var rightList = [];
     class Cards {
         constructor(ingredientId, name, url) {
             this.ingredientId = ingredientId;
@@ -21,21 +22,21 @@ document.addEventListener("DOMContentLoaded", function () {
             var buttonLike = document.createElement("button");
             var iconLike = document.createElement("i");
 
-          // Add style in the various div
-          containerCard.className += "relative m-auto flex-col justify-center items-center";
-          cardIngredient.className += "cardIngredient absolute flex flex-col border-solid border-1 border-black text-center content-center bg-white z-50 items-center justify-around";
-          pictureDiv.className += "pictureDiv border-solid border-1 border-black w-10/12 h-3/4";
-          buttonContainer.className += "buttonContainer flex justify-around w-full";
+            // Add style in the various div
+            containerCard.className += "relative m-auto flex-col justify-center items-center";
+            cardIngredient.className += "cardIngredient absolute flex flex-col border-solid border-1 border-black text-center content-center bg-white z-50 items-center justify-around";
+            pictureDiv.className += "pictureDiv border-solid border-1 border-black w-10/12 h-3/4";
+            buttonContainer.className += "buttonContainer flex justify-around w-full";
 
-          // For the dislike button
-          buttonDislike.className += "buttonDislike text-red-500 bg-white rounded-full relative text-6xl border-solid border-1 border-black ";
-          iconDislike.className += "relative fa fa-times";
+            // For the dislike button
+            buttonDislike.className += "buttonDislike text-red-500 bg-white rounded-full relative text-6xl border-solid border-1 border-black ";
+            iconDislike.className += "relative fa fa-times";
 
-          // For the like button
-          buttonLike.className += "buttonLike text-green-500 bg-white rounded-full relative text-6xl border-solid border-1 border-black";
-          iconLike.className += "fa fa-heart";
+            // For the like button
+            buttonLike.className += "buttonLike text-green-500 bg-white rounded-full relative text-6xl border-solid border-1 border-black";
+            iconLike.className += "fa fa-heart";
 
-          cardIngredient.id += this.ingredientId;
+            cardIngredient.id += this.ingredientId;
             if (this.ingredientId == 1) {
                 cardIngredient.className += " currentCard";
             } else if (this.ingredientId == 2) {
@@ -58,13 +59,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     }
-    
+
+    class Recipe {
+        constructor(recipeId, name, ingredients, url, http) {
+            this.recipeId = recipeId;
+            this.name = name;
+            this.ingredients = ingredients;
+            this.url = url;
+            this.http = http;
+        }
+
+        create() {
+
+        }
+
+    }
+
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             myObj = JSON.parse(this.responseText);
             myObj.forEach(element => {
-                var card = new Cards(element.ingredientId, element.name, element.url)
+                var card = new Cards(element.ingredientId, element.name, element.url);
                 card.create();
             });
             var right = document.querySelectorAll(".buttonLike");
@@ -81,16 +97,44 @@ document.addEventListener("DOMContentLoaded", function () {
     xmlhttp.open("GET", "./js/ingredient.json", true);
     xmlhttp.send();
 
+    var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            myObjRecipe = JSON.parse(this.responseText);
+            console.log(myObjRecipe)
+            myObjRecipe.forEach(element => {
+                var recipe = new Recipe(element.recipeId, element.name, element.ingredients, element.url, element.http);
+                recipe.create();
+            });
 
-    function swipe(leftOrRight){
+        }
+    };
+    xmlhttp2.open("GET", "./js/recipe.json", true);
+    xmlhttp2.send();
+
+
+    function swipe(leftOrRight) {
         var currentCard = event.currentTarget.parentNode.parentNode;
         var cardNext;
         var thirdCard;
         var fourthCard;
-        if (leftOrRight=="Right"){
-           var ingredientAdd=currentCard.childNodes[0].textContent;
-           rightList.push(ingredientAdd);
-           console.log(rightList)
+        if (leftOrRight == "Right") {
+            var ingredientAdd = currentCard.childNodes[0].textContent;
+            rightList.push(ingredientAdd);
+            console.log(rightList);
+            var validRecipes = { ...myObjRecipe };
+            console.log(validRecipes);
+            for (var i = 0; i < myObjRecipe.length; i++) {
+               // console.log(myObjRecipe[i].ingredients.length + myObjRecipe[i].name);
+               console.log(myObjRecipe[i].ingredients.length)
+                for (var j = 0; j < myObjRecipe[i].ingredients.length; j++) {
+                    if (rightList.indexOf(myObjRecipe[i].ingredients[j]) == -1) {
+                        //console.log(myObjRecipe[i].ingredients[j])
+                        delete validRecipes[i];
+                    }
+                }
+            }
+            console.log(validRecipes);
         }
         if (currentCard.id != (myObj.length)) {
             if (currentCard.id == (myObj.length - 1)) {
@@ -111,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cardNext.classList.add("currentCard");
             cardNext.classList.remove("cardNext");
         }
-        var direction="swipe"+leftOrRight;
+        var direction = "swipe" + leftOrRight;
         currentCard.classList.add(direction);
         document.addEventListener('animationend', () => {
             currentCard.classList.remove("currentCard");
