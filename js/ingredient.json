@@ -1,5 +1,4 @@
-[
-    {
+[{
         "ingredientId": 1,
         "name": "Almond Powder",
         "url": "imgAlmond.jpg"
@@ -71,8 +70,8 @@
     },
     {
         "ingredientId": 15,
-        "name": "Hooney",
-        "url": "imgHooney.jpg"
+        "name": "Honey",
+        "url": "imgHoney.jpg"
     },
     {
         "ingredientId": 16,
