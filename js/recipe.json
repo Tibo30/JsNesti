@@ -1,5 +1,4 @@
-[
-    {
+[{
         "recipeId": 1,
         "name": "Crepes",
         "ingredients": [
@@ -210,7 +209,7 @@
     {
         "recipeId": 16,
         "name": "Bilberries Pie",
-        "ingredients": [ 
+        "ingredients": [
             "Bilberries",
             "Eggs",
             "Flour",
@@ -225,7 +224,7 @@
     {
         "recipeId": 17,
         "name": "Orange Pie",
-        "ingredients": [ 
+        "ingredients": [
             "Orange",
             "Eggs",
             "Flour",
@@ -238,7 +237,7 @@
     {
         "recipeId": 18,
         "name": "Walnut and Chocolate Cake",
-        "ingredients": [ 
+        "ingredients": [
             "Walnut",
             "Black Chocolate",
             "Flour",
@@ -254,7 +253,7 @@
     {
         "recipeId": 19,
         "name": "Walnut and Chocolate Brownies",
-        "ingredients": [ 
+        "ingredients": [
             "Walnut",
             "Black Chocolate",
             "Flour",
@@ -283,12 +282,13 @@
         "recipeId": 21,
         "name": "White Chocolate and Raspberries Cake",
         "ingredients": [
-            "Black Chocolate",
+            "White Chocolate",
             "Flour",
             "Eggs",
             "Butter",
-            "Vanilla Sugar",
-            "Sugar"
+            "Sugar",
+            "Raspberries",
+            "Milk"
         ],
         "url": "imgWhiteChocoRaspberriesCake.jpg",
         "http": "https://www.marmiton.org/recettes/recette_gateau-magique-au-chocolat-blanc-et-framboises_325186.aspx"
@@ -307,5 +307,185 @@
         ],
         "url": "imgStrawberryPie.jpg",
         "http": "https://www.marmiton.org/recettes/recette_the-tarte-aux-fraises_22726.aspx"
+    },
+
+    {
+        "recipeId": 23,
+        "name": "Apples Pie",
+        "ingredients": [
+            "Vanilla Sugar",
+            "Eggs",
+            "Yeast",
+            "Flour",
+            "Apple"
+        ],
+        "url": "imgAppleCake.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_gateau-aux-pommes-facile_13493.aspx"
+    },
+
+    {
+        "recipeId": 23,
+        "name": "Apple Cake",
+        "ingredients": [
+            "Vanilla Sugar",
+            "Eggs",
+            "Yeast",
+            "Flour",
+            "Apple"
+        ],
+        "url": "imgAppleCake.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_gateau-aux-pommes-facile_13493.aspx"
+    },
+
+    {
+        "recipeId": 24,
+        "name": "Apricot And Almond Tart",
+        "ingredients": [
+            "Apricot",
+            "Eggs",
+            "Sugar",
+            "Vanilla Sugar",
+            "Almond Powder",
+            "Puff Pastry"
+        ],
+        "url": "imgApricotAndAlmondTart.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_tarte-abricot-amandine_39184.aspx"
+    },
+
+    {
+        "recipeId": 25,
+        "name": "Apricot Clafoutis",
+        "ingredients": [
+            "Apricot",
+            "Butter",
+            "Eggs",
+            "Sugar",
+            "Milk",
+            "Flour"
+
+        ],
+        "url": "imgApricotClafoutis.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_clafoutis-aux-abricots_39421.aspx"
+    },
+
+    {
+        "recipeId": 26,
+        "name": "Banana Muffins",
+        "ingredients": [
+            "Bananas",
+            "Sugar",
+            "Eggs",
+            "Yeast",
+            "Flour",
+            "Butter"
+
+        ],
+        "url": "imgBananaMuffins.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_muffins-a-la-banane_14745.aspx"
+    },
+
+    {
+        "recipeId": 27,
+        "name": "Chocolate Banana Crepes",
+        "ingredients": [
+            "Bananas",
+            "Black Chocolate",
+            "Eggs",
+            "Flour",
+            "Milk",
+            "Butter",
+            "Sugar"
+
+        ],
+        "url": "imgChocolateBananaCrepes.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_crepe-banane-chocolat_85802.aspx"
+    },
+
+    {
+        "recipeId": 28,
+        "name": "Cherry Clafoutis",
+        "ingredients": [
+            "Cherries",
+            "Eggs",
+            "Flour",
+            "Milk",
+            "Butter",
+            "Vanilla Sugar"
+
+        ],
+        "url": "imgCherryClafoutis.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_clafoutis-aux-cerises-express_17365.aspx"
+    },
+
+    {
+        "recipeId": 29,
+        "name": "Coconut Cookies",
+        "ingredients": [
+            "Eggs",
+            "Sugar",
+            "Milk",
+            "Butter",
+            "Vanilla Sugar",
+            "Flour",
+            "Coconut"
+
+        ],
+        "url": "imgCoconutCookies.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_cookies-a-la-noix-de-coco_372711.aspx"
+    },
+
+    {
+        "recipeId": 30,
+        "name": "Honey Madeleines",
+        "ingredients": [
+            "Butter",
+            "Eggs",
+            "Sugar",
+            "Honey",
+            "Flour",
+            "Yeast",
+            "Lemon"
+
+        ],
+        "url": "imgHoneyMadeleines.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_madeleines-au-miel_19756.aspx"
+    },
+
+    {
+        "recipeId": 31,
+        "name": "Lemon Meringue Pie",
+        "ingredients": [
+            "Puff Pastry",
+            "lemon",
+            "Sugar",
+            "Eggs",
+            "Whipped Cream"
+
+        ],
+        "url": "imgLemonMeringuePie.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_tarte-meringuee-au-citron_15431.aspx#d39803-p2"
+    },
+
+    {
+        "recipeId": 32,
+        "name": "Orange Cake",
+        "ingredients": [
+            "Butter",
+            "Sugar",
+            "Eggs",
+            "Yeast",
+            "Orange"
+
+        ],
+        "url": "imgOrangeCake.jpg",
+        "http": "https://www.marmiton.org/recettes/recette_gateau-a-l-orange-rapide_13489.aspx"
     }
+
+
+
+
+
+
+
+
 ]
