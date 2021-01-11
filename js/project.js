@@ -119,22 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var thirdCard;
         var fourthCard;
         if (leftOrRight == "Right") {
-            var ingredientAdd = currentCard.childNodes[0].textContent;
-            rightList.push(ingredientAdd);
-            console.log(rightList);
-            var validRecipes = { ...myObjRecipe };
-            console.log(validRecipes);
-            for (var i = 0; i < myObjRecipe.length; i++) {
-               // console.log(myObjRecipe[i].ingredients.length + myObjRecipe[i].name);
-               console.log(myObjRecipe[i].ingredients.length)
-                for (var j = 0; j < myObjRecipe[i].ingredients.length; j++) {
-                    if (rightList.indexOf(myObjRecipe[i].ingredients[j]) == -1) {
-                        //console.log(myObjRecipe[i].ingredients[j])
-                        delete validRecipes[i];
-                    }
-                }
-            }
-            console.log(validRecipes);
+            checkValidRecipe();
         }
         if (currentCard.id != (myObj.length)) {
             if (currentCard.id == (myObj.length - 1)) {
@@ -162,6 +147,41 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
+
+    // function checkRecipe() {
+    //     var currentCard = event.currentTarget.parentNode.parentNode;
+    //     var ingredientAdd = currentCard.childNodes[0].textContent; // récuperer le texte dadns le titre de la carte sélectionnée
+    //     rightList.push(ingredientAdd); // rajoute dans la liste
+    //     console.log(rightList);
+    //     var validRecipes = { ...myObjRecipe }; // copie de la liste des recettes
+    //     console.log(validRecipes);
+    //     for (var i = 0; i < myObjRecipe.length; i++) { // boucle sur l'ensemble des recettes
+    //         //console.log(myObjRecipe[i].ingredients.length)
+    //         for (var j = 0; j < myObjRecipe[i].ingredients.length; j++) { // boucle sur l'ensemble des ingrédients pour chaque recette
+    //             if (rightList.indexOf(myObjRecipe[i].ingredients[j]) == -1) {
+    //                 //console.log(myObjRecipe[i].ingredients[j])
+    //                 delete validRecipes[i];
+    //             }
+    //         }
+    //     }
+    //     console.log(validRecipes);
+    // }
+
+    function checkValidRecipe() {
+        var currentCard = event.currentTarget.parentNode.parentNode;
+        var ingredientAdd = currentCard.childNodes[0].textContent; // récuperer le texte dadns le titre de la carte sélectionnée
+        rightList.push(ingredientAdd); // rajoute dans la liste
+        console.log(rightList);
+        var validRecipes = {};
+        for (var i = 0; i < myObjRecipe.length; i++) { // parcours l'ensemble des recettes
+            if (rightList.every((e) => myObjRecipe[i].ingredients.includes(e))) { // on verifie si tous les elements de la liste des ingrédients sélectionnés sont inclus dans une liste d'ingrédient d'une recette.
+                validRecipes[i] = myObjRecipe[i];
+            }
+        }
+        console.log(validRecipes)
+    }
+
+
 });
 
 
