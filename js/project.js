@@ -172,12 +172,16 @@ document.addEventListener("DOMContentLoaded", function () {
         var ingredientAdd = currentCard.childNodes[0].textContent; // récuperer le texte dadns le titre de la carte sélectionnée
         rightList.push(ingredientAdd); // rajoute dans la liste
         console.log(rightList);
-        var validRecipes = {};
+        var validRecipes = [];
         for (var i = 0; i < myObjRecipe.length; i++) { // parcours l'ensemble des recettes
             if (rightList.every((e) => myObjRecipe[i].ingredients.includes(e))) { // on verifie si tous les elements de la liste des ingrédients sélectionnés sont inclus dans une liste d'ingrédient d'une recette.
-                validRecipes[i] = myObjRecipe[i];
+                validRecipes.push(myObjRecipe[i].name);
             }
         }
+        console.log(validRecipes.length);
+        console.log(validRecipes);
+        var recipeText=document.querySelector("#containerRecipes");
+        recipeText.innerHTML="Vous avez "+ validRecipes.length + " recettes disponibles";
 
     }
 
