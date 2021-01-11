@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     var myObj = [];
     var myObjRecipe = [];
     var rightList = [];
@@ -23,18 +23,18 @@ document.addEventListener("DOMContentLoaded", function () {
             var iconLike = document.createElement("i");
 
             // Add style in the various div
-            containerCard.className += "relative m-auto flex-col justify-center items-center";
-            cardIngredient.className += "cardIngredient absolute flex flex-col border-solid border-1 border-black text-center content-center bg-white z-50 items-center justify-around";
-            pictureDiv.className += "pictureDiv border-solid border-1 border-black w-10/12 h-3/4";
+            containerCard.className = "relative m-auto flex-col justify-center items-center";
+            cardIngredient.className += "cardIngredient absolute flex flex-col border-solid border-2 border-black border-opacity-50 text-center content-center bg-white z-50 items-center justify-around";
+            pictureDiv.className += "pictureDiv border-solid border-2 border-black border-opacity-50 w-10/12 h-3/4";
             buttonContainer.className += "buttonContainer flex justify-around w-full";
 
             // For the dislike button
-            buttonDislike.className += "buttonDislike text-red-500 bg-white rounded-full relative text-6xl border-solid border-1 border-black ";
-            iconDislike.className += "relative fa fa-times";
+            buttonDislike.className += "buttonDislike text-red-500 bg-white rounded-full relative border-solid border-1 border-black ";
+            iconDislike.className += "iconDislike relative fa fa-times";
 
             // For the like button
-            buttonLike.className += "buttonLike text-green-500 bg-white rounded-full relative text-6xl border-solid border-1 border-black";
-            iconLike.className += "fa fa-heart";
+            buttonLike.className += "buttonLike text-green-500 bg-white rounded-full relative  border-solid border-1 border-black";
+            iconLike.className += "iconLike fa fa-heart";
 
             cardIngredient.id += this.ingredientId;
             if (this.ingredientId == 1) {
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             myObj = JSON.parse(this.responseText);
             myObj.forEach(element => {
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     xmlhttp.send();
 
     var xmlhttp2 = new XMLHttpRequest();
-    xmlhttp2.onreadystatechange = function () {
+    xmlhttp2.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             myObjRecipe = JSON.parse(this.responseText);
             console.log(myObjRecipe)
@@ -148,25 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    // function checkRecipe() {
-    //     var currentCard = event.currentTarget.parentNode.parentNode;
-    //     var ingredientAdd = currentCard.childNodes[0].textContent; // récuperer le texte dadns le titre de la carte sélectionnée
-    //     rightList.push(ingredientAdd); // rajoute dans la liste
-    //     console.log(rightList);
-    //     var validRecipes = { ...myObjRecipe }; // copie de la liste des recettes
-    //     console.log(validRecipes);
-    //     for (var i = 0; i < myObjRecipe.length; i++) { // boucle sur l'ensemble des recettes
-    //         //console.log(myObjRecipe[i].ingredients.length)
-    //         for (var j = 0; j < myObjRecipe[i].ingredients.length; j++) { // boucle sur l'ensemble des ingrédients pour chaque recette
-    //             if (rightList.indexOf(myObjRecipe[i].ingredients[j]) == -1) {
-    //                 //console.log(myObjRecipe[i].ingredients[j])
-    //                 delete validRecipes[i];
-    //             }
-    //         }
-    //     }
-    //     console.log(validRecipes);
-    // }
-
     function checkValidRecipe() {
         var currentCard = event.currentTarget.parentNode.parentNode;
         var ingredientAdd = currentCard.childNodes[0].textContent; // récuperer le texte dadns le titre de la carte sélectionnée
@@ -178,15 +159,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 validRecipes.push(myObjRecipe[i].name);
             }
         }
-        console.log(validRecipes.length);
-        console.log(validRecipes);
-        var recipeText=document.querySelector("#containerRecipes");
-        recipeText.innerHTML="Vous avez "+ validRecipes.length + " recettes disponibles";
+        
+        console.log(validRecipes)
+        var recipesAvailables
+        if (validRecipes.length < 2) {
+            recipesAvailables = "There is " + validRecipes.length + " recipe available.";
+        } else {
+            recipesAvailables = "There are " + validRecipes.length + " recipes available.";
+        }
+        document.getElementById("sentenceRecipesAvailable").innerHTML = recipesAvailables;
 
     }
-
-
 });
-
-
-

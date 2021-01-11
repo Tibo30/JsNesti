@@ -62,13 +62,6 @@ button:hover {
     /*  opacity: 0;*/
 }
 
-.cardIngredient button {
-    height: 5rem;
-    width: 5rem;
-    border: 4px solid #f0f0f0;
-    cursor: pointer;
-}
-
 .currentCard {
     position: absolute;
     z-index: 10;
@@ -87,16 +80,6 @@ button:hover {
     transform: rotate(-4deg);
 }
 
-#containerCard,
-#containerCard .cardIngredient {
-    width: 25vw;
-    height: 50vh;
-}
-
-.buttonDislike i {
-    bottom: 0.24rem;
-}
-
 .pictureDiv {
     background-size: cover;
     background-position: center;
@@ -104,6 +87,121 @@ button:hover {
 
 .cardIngredient {
     animation-fill-mode: forwards;
+}
+
+.cardIngredient button {
+    height: 8vh;
+    width: 5vw;
+    border: 4px solid #f0f0f0;
+    cursor: pointer;
+}
+
+@media (min-height: 800px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 18vw;
+        height: 35vh;
+    }
+    .cardIngredient button {
+        height: 3rem;
+        width: 3rem;
+    }
+    .buttonDislike {
+        font-size: 1.5rem;
+    }
+    .buttonLike {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-height: 1024px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 18vw;
+        height: 35vh;
+    }
+    .cardIngredient button {
+        height: 3.3rem;
+        width: 3.3rem;
+    }
+    .buttonDislike {
+        font-size: 1.5rem;
+    }
+    .buttonLike {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 18vw;
+        height: 36vh;
+    }
+    .cardIngredient button {
+        height: 3.4rem;
+        width: 3.4rem;
+    }
+    .buttonDislike {
+        font-size: 1.6rem;
+    }
+    .buttonLike {
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 18vw;
+        height: 40vh;
+    }
+    .cardIngredient button {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    .buttonDislike {
+        font-size: 1.9rem;
+    }
+    .buttonLike {
+        font-size: 1.9rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 18vw;
+        height: 45vh;
+    }
+    .cardIngredient button {
+        height: 4rem;
+        width: 4rem;
+    }
+    .buttonDislike {
+        font-size: 2.25rem;
+    }
+    .buttonLike {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 20vw;
+        height: 50vh;
+    }
+    .cardIngredient button {
+        height: 5rem;
+        width: 5rem;
+    }
+    .buttonDislike {
+        font-size: 3rem;
+    }
+    .buttonLike {
+        font-size: 3rem;
+    }
 }
 
 @keyframes swipe-left {
@@ -143,4 +241,3 @@ button:hover {
         z-index: -50;
     }
 }
-
