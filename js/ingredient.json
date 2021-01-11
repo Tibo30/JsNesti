@@ -90,76 +90,71 @@
     },
     {
         "ingredientId": 19,
-        "name": "Mint",
-        "url": "imgMint.jpg"
-    },
-    {
-        "ingredientId": 20,
         "name": "Orange",
         "url": "imgOrange.jpg"
     },
     {
-        "ingredientId": 21,
+        "ingredientId": 20,
         "name": "Pears",
         "url": "imgPears.jpg"
     },
     {
-        "ingredientId": 22,
+        "ingredientId": 21,
         "name": "Pineapple",
         "url": "imgPineapple.jpg"
     },
     {
-        "ingredientId": 23,
+        "ingredientId": 22,
         "name": "Puff Pastry",
         "url": "imgPuffPastry.jpg"
     },
     {
-        "ingredientId": 24,
+        "ingredientId": 23,
         "name": "Raspberries",
         "url": "imgRaspberries.jpg"
     },
     {
-        "ingredientId": 25,
+        "ingredientId": 24,
         "name": "Speculoos",
         "url": "imgSpeculoos.jpg"
     },
     {
-        "ingredientId": 26,
+        "ingredientId": 25,
         "name": "Spoon Biscuit",
         "url": "imgSpoonBiscuit.jpg"
     },
     {
-        "ingredientId": 27,
+        "ingredientId": 26,
         "name": "Strawberries",
         "url": "imgStrawberries.jpg"
     },
     {
-        "ingredientId": 28,
+        "ingredientId": 27,
         "name": "Sugar",
         "url": "imgSugar.jpg"
     },
     {
-        "ingredientId": 29,
+        "ingredientId": 28,
         "name": "Vanilla Sugar",
         "url": "imgVanillaSugar.jpg"
     },
     {
-        "ingredientId": 30,
+        "ingredientId": 29,
         "name": "Walnut",
         "url": "imgWalnut.jpg"
     },
     {
-        "ingredientId": 31,
+        "ingredientId": 30,
         "name": "Whipped Cream",
         "url": "imgCream.jpg"
     },
     {
-        "ingredientId": 32,
+        "ingredientId": 31,
         "name": "White Chocolate",
         "url": "imgChocolateWhite.jpg"
     },
     {
-        "ingredientId": 33,
+        "ingredientId": 32,
         "name": "Yeast",
         "url": "imgYeast.jpg"
     }
