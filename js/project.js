@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 validRecipes[i] = myObjRecipe[i];
             }
         }
-        console.log(validRecipes)
+
     }
 
 
