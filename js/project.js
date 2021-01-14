@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         create() {
             var containerCard = document.querySelector('#containerCard');
             var cardIngredient = document.createElement("div");
-            var title = document.createElement("h4");
+            var title = document.createElement("p");
             var titleText = document.createTextNode(this.name);
             var pictureDiv = document.createElement("div");
             pictureDiv.style["background-image"] = "url(assets/pictures/" + this.url + ")";
@@ -29,11 +29,11 @@ document.addEventListener("DOMContentLoaded", function() {
             buttonContainer.className += "buttonContainer flex justify-around w-full";
 
             // For the dislike button
-            buttonDislike.className += "buttonDislike text-red-500 bg-white rounded-full relative border-solid border-1 border-black ";
+            buttonDislike.className += "buttonDislike text-red-500 bg-white rounded-full relative";
             iconDislike.className += "iconDislike relative fa fa-times";
 
             // For the like button
-            buttonLike.className += "buttonLike text-green-500 bg-white rounded-full relative  border-solid border-1 border-black";
+            buttonLike.className += "buttonLike text-green-500 bg-white rounded-full relative";
             iconLike.className += "iconLike fa fa-heart";
 
             cardIngredient.id += this.ingredientId;
