@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +13,6 @@ body {
     background-position-x: 50%;
     background-position-y: 50%;
     background-size: cover, cover;
-    overflow: hidden;
 }
 
 #container {
@@ -29,21 +29,22 @@ body {
 }
 
 #project {
-    color: #C4580E;
-    font-family: Dosis700;
-    font-size: 3rem;
+    color: #ffffff;
+    font-family: 'Sofia', cursive;
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 #nesti {
-    color: #01AF92;
-    font-family: DosisRegular;
-    font-size: 4rem;
+    color: #ffffff;
+    font-family: 'Sofia', cursive;
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px #000000;
 }
 
-h4 {
-    font-family: DosisRegular;
-    font-weight: bolder;
-    font-size: 2rem;
+.cardIngredient p {
+    font-family: 'Sofia', cursive;
+    font-size: 1.9rem;
 }
 
 button:hover {
@@ -80,6 +81,13 @@ button:hover {
     transform: rotate(-4deg);
 }
 
+.currentCard,
+.cardNext,
+.thirdCard,
+.fourthCard {
+    box-shadow: 0px 2px 5px 0px #020202cc;
+}
+
 .pictureDiv {
     background-size: cover;
     background-position: center;
@@ -92,8 +100,14 @@ button:hover {
 .cardIngredient button {
     height: 8vh;
     width: 5vw;
-    border: 4px solid #f0f0f0;
+    border: 5px solid #0303031e;
     cursor: pointer;
+}
+
+#sentenceRecipesAvailable {
+    font-family: 'Sofia', cursive;
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 @media (min-height: 800px) {
@@ -189,8 +203,8 @@ button:hover {
 @media (min-width: 1920px) {
     #containerCard,
     #containerCard .cardIngredient {
-        width: 20vw;
-        height: 50vh;
+        width: 25rem;
+        height: 35rem;
     }
     .cardIngredient button {
         height: 5rem;
