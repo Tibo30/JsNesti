@@ -35,7 +35,7 @@ body {
     text-shadow: 2px 2px 4px #000000;
 }
 
-#nesti {
+#nesti, #titleRecipe {
     color: #ffffff;
     font-family: 'Sofia', cursive;
     font-size: 5rem;
