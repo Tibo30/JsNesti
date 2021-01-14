@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var myObj = [];
     var myObjRecipe = [];
     var rightList = [];
+    var validRecipes = [];
     class Cards {
         constructor(ingredientId, name, url) {
             this.ingredientId = ingredientId;
@@ -60,20 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }
 
-    class Recipe {
-        constructor(recipeId, name, ingredients, url, http) {
-            this.recipeId = recipeId;
-            this.name = name;
-            this.ingredients = ingredients;
-            this.url = url;
-            this.http = http;
-        }
-
-        create() {
-
-        }
-
-    }
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -92,6 +79,12 @@ document.addEventListener("DOMContentLoaded", function() {
             left.forEach(element => {
                 element.addEventListener('click', (e) => swipe("Left"))
             })
+
+            var consult = document.querySelector("#consultRecipe");
+            consult.addEventListener('click', function(){
+                doSetRecipe();
+                window.location.href='recipe.html';
+            });
         }
     };
     xmlhttp.open("GET", "./js/ingredient.json", true);
@@ -100,13 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var xmlhttp2 = new XMLHttpRequest();
     xmlhttp2.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            myObjRecipe = JSON.parse(this.responseText);
-            console.log(myObjRecipe)
-            myObjRecipe.forEach(element => {
-                var recipe = new Recipe(element.recipeId, element.name, element.ingredients, element.url, element.http);
-                recipe.create();
-            });
-
+            myObjRecipe = JSON.parse(this.responseText);     
         }
     };
     xmlhttp2.open("GET", "./js/recipe.json", true);
@@ -153,10 +140,10 @@ document.addEventListener("DOMContentLoaded", function() {
         var ingredientAdd = currentCard.childNodes[0].textContent; // récuperer le texte dadns le titre de la carte sélectionnée
         rightList.push(ingredientAdd); // rajoute dans la liste
         console.log(rightList);
-        var validRecipes = [];
+        validRecipes = [];
         for (var i = 0; i < myObjRecipe.length; i++) { // parcours l'ensemble des recettes
             if (rightList.every((e) => myObjRecipe[i].ingredients.includes(e))) { // on verifie si tous les elements de la liste des ingrédients sélectionnés sont inclus dans une liste d'ingrédient d'une recette.
-                validRecipes.push(myObjRecipe[i].name);
+                validRecipes.push(myObjRecipe[i]);
             }
         }
         
@@ -170,4 +157,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("sentenceRecipesAvailable").innerHTML = recipesAvailables;
 
     }
+
+    function doSetRecipe(){
+       localStorage.setItem("validRecipes",JSON.stringify(validRecipes)); 
+    }
+
 });
