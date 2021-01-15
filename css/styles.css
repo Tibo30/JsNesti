@@ -1,4 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+
+/* Changing the card sizes depending of the user screen resolution */
+
+
+/*
+@media (max-height: 800px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 18rem;
+        height: 35rem;
+    }
+    .cardIngredient button {
+        height: 3rem;
+        width: 3rem;
+    }
+    .buttonDislike {
+        font-size: 1.5rem;
+    }
+    .buttonLike {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-height: 1024px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 18rem;
+        height: 35rem;
+    }
+    .cardIngredient button {
+        height: 3.3rem;
+        width: 3.3rem;
+    }
+    .buttonDislike {
+        font-size: 1.5rem;
+    }
+    .buttonLike {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 1440px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 20rem;
+        height: 30rem;
+    }
+    .cardIngredient button {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    .buttonDislike {
+        font-size: 1.9rem;
+    }
+    .buttonLike {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 1920px) {
+    #containerCard,
+    #containerCard .cardIngredient {
+        width: 40rem;
+        height: 30rem;
+    }
+    .cardIngredient button {
+        height: 5rem;
+        width: 5rem;
+    }
+    .buttonDislike {
+        font-size: 3rem;
+    }
+    .buttonLike {
+        font-size: 3rem;
+    }
+}*/
+
 * {
     margin: 0;
     padding: 0;
@@ -35,16 +112,55 @@ body {
     text-shadow: 2px 2px 4px #000000;
 }
 
-#nesti, #titleRecipe {
+#nesti,
+#titleRecipe {
     color: #ffffff;
     font-family: 'Sofia', cursive;
     font-size: 5rem;
     text-shadow: 2px 2px 4px #000000;
 }
 
+.cardRecipe p,
 .cardIngredient p {
     font-family: 'Sofia', cursive;
     font-size: 1.9rem;
+}
+
+#containerCard,
+#containerCard .cardIngredient {
+    width: 25rem;
+    height: 35rem;
+}
+
+#containerRecipe .cardRecipe {
+    width: 25rem;
+    height: 30rem;
+    box-shadow: 4px 5px 5px 1px #020202cc;
+}
+
+.pictureDiv {
+    background-size: cover;
+    background-position: center;
+}
+
+.cardIngredient button {
+    height: 2rem;
+    width: 10rem;
+}
+
+.buttonDislike {
+    font-size: 4rem;
+}
+
+.buttonLike {
+    font-size: 4rem;
+}
+
+.cardIngredient button {
+    height: 6rem;
+    width: 6rem;
+    border: 5px solid #0303031e;
+    cursor: pointer;
 }
 
 button:hover {
@@ -88,20 +204,8 @@ button:hover {
     box-shadow: 0px 2px 5px 0px #020202cc;
 }
 
-.pictureDiv {
-    background-size: cover;
-    background-position: center;
-}
-
 .cardIngredient {
     animation-fill-mode: forwards;
-}
-
-.cardIngredient button {
-    height: 8vh;
-    width: 5vw;
-    border: 5px solid #0303031e;
-    cursor: pointer;
 }
 
 #sentenceRecipesAvailable {
@@ -110,113 +214,8 @@ button:hover {
     text-shadow: 2px 2px 4px #000000;
 }
 
-@media (min-height: 800px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 18vw;
-        height: 35vh;
-    }
-    .cardIngredient button {
-        height: 3rem;
-        width: 3rem;
-    }
-    .buttonDislike {
-        font-size: 1.5rem;
-    }
-    .buttonLike {
-        font-size: 1.5rem;
-    }
-}
 
-@media (min-height: 1024px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 18vw;
-        height: 35vh;
-    }
-    .cardIngredient button {
-        height: 3.3rem;
-        width: 3.3rem;
-    }
-    .buttonDislike {
-        font-size: 1.5rem;
-    }
-    .buttonLike {
-        font-size: 1.5rem;
-    }
-}
-
-@media (min-width: 1280px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 18vw;
-        height: 36vh;
-    }
-    .cardIngredient button {
-        height: 3.4rem;
-        width: 3.4rem;
-    }
-    .buttonDislike {
-        font-size: 1.6rem;
-    }
-    .buttonLike {
-        font-size: 1.6rem;
-    }
-}
-
-@media (min-width: 1440px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 18vw;
-        height: 40vh;
-    }
-    .cardIngredient button {
-        height: 3.5rem;
-        width: 3.5rem;
-    }
-    .buttonDislike {
-        font-size: 1.9rem;
-    }
-    .buttonLike {
-        font-size: 1.9rem;
-    }
-}
-
-@media (min-width: 1600px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 18vw;
-        height: 45vh;
-    }
-    .cardIngredient button {
-        height: 4rem;
-        width: 4rem;
-    }
-    .buttonDislike {
-        font-size: 2.25rem;
-    }
-    .buttonLike {
-        font-size: 2.25rem;
-    }
-}
-
-@media (min-width: 1920px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 25rem;
-        height: 35rem;
-    }
-    .cardIngredient button {
-        height: 5rem;
-        width: 5rem;
-    }
-    .buttonDislike {
-        font-size: 3rem;
-    }
-    .buttonLike {
-        font-size: 3rem;
-    }
-}
+/* Keyframes for the transitions */
 
 @keyframes swipe-left {
     0% {

@@ -81,9 +81,9 @@ document.addEventListener("DOMContentLoaded", function() {
             })
 
             var consult = document.querySelector("#consultRecipe");
-            consult.addEventListener('click', function(){
+            consult.addEventListener('click', function() {
                 doSetRecipe();
-                window.location.href='recipe.html';
+                window.location.href = 'recipe.html';
             });
         }
     };
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var xmlhttp2 = new XMLHttpRequest();
     xmlhttp2.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            myObjRecipe = JSON.parse(this.responseText);     
+            myObjRecipe = JSON.parse(this.responseText);
         }
     };
     xmlhttp2.open("GET", "./js/recipe.json", true);
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 validRecipes.push(myObjRecipe[i]);
             }
         }
-        
+
         console.log(validRecipes)
         var recipesAvailables
         if (validRecipes.length < 2) {
@@ -158,8 +158,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }
 
-    function doSetRecipe(){
-       localStorage.setItem("validRecipes",JSON.stringify(validRecipes)); 
+    function doSetRecipe() {
+        localStorage.setItem("validRecipes", JSON.stringify(validRecipes));
     }
 
 });
