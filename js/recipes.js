@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var recipe = JSON.parse(localStorage.getItem("validRecipes"));
 
     class Recipes {
+
         constructor(recipeId, name, ingredients, url, http) {
             this.recipeId = recipeId;
             this.name = name;
@@ -12,8 +13,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         create() {
             var container = document.querySelector('#containerRecipe');
+            var linkRecipe = document.createElement("a");
             var cardRecipe = document.createElement("div");
             var title = document.createElement("p");
+            var icon = document.createElement("img");
             var titleText = document.createTextNode(this.name);
             var pictureDiv = document.createElement("div");
             pictureDiv.style["background-image"] = "url(assets/pictures/" + this.url + ")";
@@ -23,10 +26,19 @@ document.addEventListener("DOMContentLoaded", function() {
             cardRecipe.className += "cardRecipe relative flex flex-col border-solid border-2 border-black border-opacity-50 text-center content-center bg-white z-50 items-center justify-around m-6";
             pictureDiv.className += "pictureDiv border-solid border-2 border-black border-opacity-50 w-10/12 h-3/4";
 
-            container.prepend(cardRecipe);
+            container.prepend(linkRecipe);
+            linkRecipe.prepend(cardRecipe);
             cardRecipe.appendChild(title);
             title.appendChild(titleText);
             cardRecipe.appendChild(pictureDiv);
+            cardRecipe.appendChild(icon);
+
+
+            icon.src = "assets/pictures/icon-foreign.png";
+
+            linkRecipe.id = this.recipeId;
+            linkRecipe.href = this.http;
+
         }
 
     }

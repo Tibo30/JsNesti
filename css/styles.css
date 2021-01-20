@@ -1,123 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
-
-/* Changing the card sizes depending of the user screen resolution */
-
-
-/*
-@media (max-height: 800px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 18rem;
-        height: 35rem;
-    }
-    .cardIngredient button {
-        height: 3rem;
-        width: 3rem;
-    }
-    .buttonDislike {
-        font-size: 1.5rem;
-    }
-    .buttonLike {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-height: 1024px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 18rem;
-        height: 35rem;
-    }
-    .cardIngredient button {
-        height: 3.3rem;
-        width: 3.3rem;
-    }
-    .buttonDislike {
-        font-size: 1.5rem;
-    }
-    .buttonLike {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 1440px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 20rem;
-        height: 30rem;
-    }
-    .cardIngredient button {
-        height: 3.5rem;
-        width: 3.5rem;
-    }
-    .buttonDislike {
-        font-size: 1.9rem;
-    }
-    .buttonLike {
-        font-size: 1.9rem;
-    }
-}
-
-@media (max-width: 1920px) {
-    #containerCard,
-    #containerCard .cardIngredient {
-        width: 40rem;
-        height: 30rem;
-    }
-    .cardIngredient button {
-        height: 5rem;
-        width: 5rem;
-    }
-    .buttonDislike {
-        font-size: 3rem;
-    }
-    .buttonLike {
-        font-size: 3rem;
-    }
-}*/
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* HTML Part */
+
 body {
     background-attachment: fixed;
     background-color: rgb(255, 255, 255);
     background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("/assets/pictures/background.jpg");
-    background-position: 50% 50%;
-    background-position-x: 50%;
-    background-position-y: 50%;
     background-size: cover, cover;
-}
-
-#container {
-    margin-right: auto;
-    margin-left: auto;
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-#title {
+#header {
     text-align: center;
     margin: 1rem auto 2rem auto;
 }
 
-#project {
+#titleIngredient {
     color: #ffffff;
     font-family: 'Sofia', cursive;
     font-size: 5rem;
     text-shadow: 2px 2px 4px #000000;
 }
 
-#nesti,
+#instructions {
+    color: #ffffff;
+    font-family: 'Sofia', cursive;
+    font-size: 1.4rem;
+    text-shadow: 2px 2px 4px #000000;
+}
+
 #titleRecipe {
     color: #ffffff;
     font-family: 'Sofia', cursive;
     font-size: 5rem;
     text-shadow: 2px 2px 4px #000000;
+}
+
+#containerIngredientCards,
+#containerIngredientCards .cardIngredient {
+    width: 25rem;
+    height: 30rem;
+    background-color: #f7f7ea;
+}
+
+#containerRecipe .cardRecipe {
+    width: 25rem;
+    height: 30rem;
+    box-shadow: 4px 5px 5px 1px #020202cc;
+    background-color: #f7f7ea;
 }
 
 .cardRecipe p,
@@ -126,16 +64,8 @@ body {
     font-size: 1.9rem;
 }
 
-#containerCard,
-#containerCard .cardIngredient {
-    width: 25rem;
-    height: 35rem;
-}
-
-#containerRecipe .cardRecipe {
-    width: 25rem;
-    height: 30rem;
-    box-shadow: 4px 5px 5px 1px #020202cc;
+.cardRecipe:hover {
+    scale: 1.025;
 }
 
 .pictureDiv {
@@ -148,18 +78,32 @@ body {
     width: 10rem;
 }
 
+#containerButtons button {
+    font-family: 'Sofia', cursive;
+    font-size: 1.6rem;
+    box-shadow: 4px 5px 5px 1px #020202ad;
+}
+
 .buttonDislike {
     font-size: 4rem;
+}
+
+.iconDislike {
+    bottom: 0.65rem;
 }
 
 .buttonLike {
     font-size: 4rem;
 }
 
+.iconLike {
+    bottom: 0.4rem;
+}
+
 .cardIngredient button {
     height: 6rem;
     width: 6rem;
-    border: 5px solid #0303031e;
+    border: 5px solid #03030349;
     cursor: pointer;
 }
 
@@ -167,16 +111,23 @@ button:hover {
     scale: 1.025;
 }
 
+footer {
+    color: #ffffff;
+    font-size: 1.10rem;
+    background-color: #8a8a8a38;
+}
+
+
+/* Javascript Part */
+
 .swipeLeft {
     animation: swipe-left 0.6s ease-in-out;
     z-index: 1;
-    /* opacity: 0.7;*/
 }
 
 .swipeRight {
     animation: swipe-right 0.6s ease-in-out;
     z-index: 1;
-    /*  opacity: 0;*/
 }
 
 .currentCard {
@@ -201,7 +152,7 @@ button:hover {
 .cardNext,
 .thirdCard,
 .fourthCard {
-    box-shadow: 0px 2px 5px 0px #020202cc;
+    box-shadow: 4px 5px 5px 1px #020202b0;
 }
 
 .cardIngredient {
@@ -210,7 +161,7 @@ button:hover {
 
 #sentenceRecipesAvailable {
     font-family: 'Sofia', cursive;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     text-shadow: 2px 2px 4px #000000;
 }
 

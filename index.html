@@ -7,25 +7,38 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>Index</title>
 </head>
 
 <body>
-    <div id="container">
-        <div id="title">
-            <p id="project"> Projet Fil Rouge </p>
-            <p id="nesti"> Nesti </p>
-        </div>
-        <div id="containerCard">
-        </div>
 
-        <div class="containerResult relative flex flex-col m-auto justify-center items-center mt-10">
-            <p id="sentenceRecipesAvailable" class="text-white"></p>
-            <button id="consultRecipe" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-5">Consult the recipes</button>
-        </div>
+    <div id="header">
+        <p id="titleIngredient">~ The Recipe Finder ~</p>
+        <br>
+        <p id="instructions"> You are in lack of inspiration? You don't know what to cook tonight for your family? We have THE SOLUTION!
+            <br> Just click on the heart if you have the ingredient at home. Of course, if you don't, click on the cross.
+            <br> When you think you are done, click on the button named <i>"Consult the recipes"</i> and we will find succulent recipes for you in no time!
+        </p>
+        <br>
+    </div>
+    <div id="containerIngredientCards">
     </div>
 
-    <script src="./js/project.js"></script>
+    <div class="containerResult relative flex flex-col m-auto justify-center items-center mt-10">
+        <p id="sentenceRecipesAvailable" class="text-white"></p>
+        <div id="containerButtons" class="relative flex flex-row">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-5 mr-5" onClick="window.location.reload()">Try again</button>
+            <button id="consultRecipe" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-5 ml-5">Consult the recipes</button>
+        </div>
+    </div>
+    <footer class="relative flex text-center justify-center mt-10 mb-2">
+        <p> 2020 © All rights reserved | Created by Thibault Jolivet & Axel Teillier
+            <br> This project was carried out as part of our CDA formation at the GRETA of Montpellier
+        </p>
+    </footer>
+
+    <script src="./js/CardIngredients.js"></script>
+    <script src="./js/ingredients.js "></script>
+
 
 </body>
 
