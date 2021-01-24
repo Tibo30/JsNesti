@@ -118,9 +118,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Display the number of recipes available 
     function resultRecipe() {
+        var consultButton = document.querySelector("#consultRecipe");
+        var tryAgain = document.querySelector("#tryAgain");
+        // change parameters of buttons Try Again and Consult the recipes to normal state
+        consultButton.disabled=false;
+        consultButton.style.background='#3b82f6';
+        tryAgain.style.background='#3b82f6';
 
         if (validRecipes.length < 2) {
             recipesAvailables = "There is " + validRecipes.length + " recipe available.";
+            if (validRecipes.length==0){
+               // change parameters of buttons Try Again and Consult the recipes if there is no recipe available
+                consultButton.disabled=true;
+                consultButton.style.background='#ef4444';
+                tryAgain.style.background='#10b981';
+            }
         } else {
             recipesAvailables = "There are " + validRecipes.length + " recipes available.";
         }
