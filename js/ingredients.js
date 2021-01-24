@@ -1,5 +1,5 @@
 // Attach a click event to the document
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     // Creation of the variables
     var myObj = [];
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Add event listener on the recipe review button that launches the web page that displays the recipes
             var consult = document.querySelector("#consultRecipe");
-            consult.addEventListener('click', function() {
+            consult.addEventListener('click', function () {
                 doSetRecipe();
                 window.location.href = 'recipe.html';
             });
@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add direction of the cards
         var direction = "swipe" + leftOrRight;
         currentCard.classList.add(direction);
-        
-         // Remove the tag currentCard at the end of the animation
+
+        // Remove the tag currentCard at the end of the animation
         document.addEventListener('animationend', () => {
             currentCard.classList.remove("currentCard");
         });
@@ -121,23 +121,26 @@ document.addEventListener("DOMContentLoaded", function() {
         var consultButton = document.querySelector("#consultRecipe");
         var tryAgain = document.querySelector("#tryAgain");
         // change parameters of buttons Try Again and Consult the recipes to normal state
-        consultButton.disabled=false;
-        consultButton.style.background='#3b82f6';
-        tryAgain.style.background='#3b82f6';
+        consultButton.disabled = true;
+        consultButton.style.background = '#3b82f6';
+        tryAgain.style.background = '#3b82f6';
+        if (rightList.length > 0) { // if at least on ingredient is selected
+            if (validRecipes.length < 2) {
+                recipesAvailables = "There is " + validRecipes.length + " recipe available.";
+                consultButton.disabled = false;
+                if (validRecipes.length == 0) {
+                    // change parameters of buttons Try Again and Consult the recipes if there is no recipe available
+                    consultButton.style.background = '#ef4444';
+                    tryAgain.style.background = '#10b981';
+                }
 
-        if (validRecipes.length < 2) {
-            recipesAvailables = "There is " + validRecipes.length + " recipe available.";
-            if (validRecipes.length==0){
-               // change parameters of buttons Try Again and Consult the recipes if there is no recipe available
-                consultButton.disabled=true;
-                consultButton.style.background='#ef4444';
-                tryAgain.style.background='#10b981';
+            } else {
+                recipesAvailables = "There are " + validRecipes.length + " recipes available.";
+                consultButton.style.background = '#10b981';
+                consultButton.disabled = false;
             }
-        } else {
-            recipesAvailables = "There are " + validRecipes.length + " recipes available.";
+            document.getElementById("sentenceRecipesAvailable").innerHTML = recipesAvailables;
         }
-        document.getElementById("sentenceRecipesAvailable").innerHTML = recipesAvailables;
-
     }
 
     // Save the list containing the valid recipes into the local storage
