@@ -1,4 +1,4 @@
-<h1 align="center"> Nesti Project - Web Part (HTML/CSS/JavaScript/JSON/Tailwind)</h1>
+<h1 align="center"> Nesti Project - Web Part /n(HTML/CSS/JavaScript/JSON/Tailwind)</h1>
 
 <p align="center">
 <img src="https://github.com/Tibo30/JsNesti/blob/master/assets/pictures/img-readme.jpg">
