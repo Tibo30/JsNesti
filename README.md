@@ -1,7 +1,7 @@
 <h1 align="center"> Nesti Project - Web Part (HTML/CSS/JavaScript/JSON/TAILWIND)</h1>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/axel-t/Nesti-Project-Connection-App/main/assets/login-page.PNG">
+<img src="https://github.com/Tibo30/JsNesti/blob/master/assets/pictures/img-readme.jpg">
 </p>
 
 <p>
