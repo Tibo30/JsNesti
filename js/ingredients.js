@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var divCurrentCard = event.currentTarget.parentNode.parentNode; // Get the informations of the chosen card after the click on the like button
         var ingredientAdd = divCurrentCard.childNodes[0].textContent; // Get the title of the chosen card
         rightList.push(ingredientAdd); // Push the title in an array
-
+        validRecipes = [];
 
         for (var i = 0; i < myObjRecipe.length; i++) { // Browse all the recipes
             if (rightList.every(e => myObjRecipe[i].ingredients.includes(e))) { // Check if all the ingredients contained in the ingredients list are included in the ingredients of each recipe in the recipe list
