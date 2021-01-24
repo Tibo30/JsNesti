@@ -93,6 +93,11 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add direction of the cards
         var direction = "swipe" + leftOrRight;
         currentCard.classList.add(direction);
+        
+         // Remove the tag currentCard at the end of the animation
+        document.addEventListener('animationend', () => {
+            currentCard.classList.remove("currentCard");
+        });
     }
 
     // Compare the list of ingredients chosed by the user with the list of recipes available
