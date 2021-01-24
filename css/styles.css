@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +33,7 @@ body {
 
 #instructions {
     color: #ffffff;
-    font-family: 'Sofia', cursive;
+    font-family: 'Noto', cursive;
     font-size: 1.4rem;
     text-shadow: 2px 2px 4px #000000;
 }
@@ -79,8 +80,8 @@ body {
 }
 
 #containerButtons button {
-    font-family: 'Sofia', cursive;
-    font-size: 1.6rem;
+    font-family: 'Noto', cursive;
+    font-size: 1.4rem;
     box-shadow: 4px 5px 5px 1px #020202ad;
 }
 
@@ -103,7 +104,7 @@ body {
 .cardIngredient button {
     height: 6rem;
     width: 6rem;
-    border: 5px solid #03030349;
+    border: 5px solid #03030338;
     cursor: pointer;
 }
 
@@ -160,7 +161,7 @@ footer {
 }
 
 #sentenceRecipesAvailable {
-    font-family: 'Sofia', cursive;
+    font-family: 'Noto', cursive;
     font-size: 1.7rem;
     text-shadow: 2px 2px 4px #000000;
 }
