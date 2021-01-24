@@ -14,7 +14,7 @@
 body {
     background-attachment: fixed;
     background-color: rgb(255, 255, 255);
-    background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("/assets/pictures/background.jpg");
+    background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../assets/pictures/background.jpg");
     background-size: cover, cover;
     position: relative;
     display: flex;

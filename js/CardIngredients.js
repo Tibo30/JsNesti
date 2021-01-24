@@ -33,11 +33,11 @@ class CardsIngredients {
         buttonContainer.className += "buttonContainer flex justify-around w-full mt-4 mb-4";
 
         // For the dislike button
-        buttonDislike.className += "buttonDislike text-red-500 bg-white rounded-full relative";
+        buttonDislike.className += "buttonDislike relative text-red-500 bg-white rounded-full ";
         iconDislike.className += "iconDislike relative fa fa-times";
 
         // For the like button
-        buttonLike.className += "buttonLike text-green-500 bg-white rounded-full relative";
+        buttonLike.className += "buttonLike relative text-green-500 bg-white rounded-full  border-none";
         iconLike.className += "iconLike relative fa fa-heart";
 
 

@@ -93,6 +93,11 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add direction of the cards
         var direction = "swipe" + leftOrRight;
         currentCard.classList.add(direction);
+
+        // Remove the tag currentCard at the end of the animation
+        document.addEventListener('animationend', () => {
+            currentCard.classList.remove("currentCard");
+        });
     }
 
     // Compare the list of ingredients chosed by the user with the list of recipes available
@@ -102,13 +107,14 @@ document.addEventListener("DOMContentLoaded", function() {
         var ingredientAdd = divCurrentCard.childNodes[0].textContent; // Get the title of the chosen card
         rightList.push(ingredientAdd); // Push the title in an array
 
+        validRecipes = [];
 
+        console.log("1 " + validRecipes);
         for (var i = 0; i < myObjRecipe.length; i++) { // Browse all the recipes
             if (rightList.every(e => myObjRecipe[i].ingredients.includes(e))) { // Check if all the ingredients contained in the ingredients list are included in the ingredients of each recipe in the recipe list
                 validRecipes.push(myObjRecipe[i]); // Push the recipe in the array validRecipes
             }
         }
-
     }
 
     // Display the number of recipes available 
