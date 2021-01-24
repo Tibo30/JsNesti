@@ -1,5 +1,5 @@
 // Attach a click event to the document
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
 
     // Creation of the variables
     var myObj = [];
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Add event listener on the recipe review button that launches the web page that displays the recipes
             var consult = document.querySelector("#consultRecipe");
-            consult.addEventListener('click', function () {
+            consult.addEventListener('click', function() {
                 doSetRecipe();
                 window.location.href = 'recipe.html';
             });
@@ -108,12 +108,12 @@ document.addEventListener("DOMContentLoaded", function () {
         rightList.push(ingredientAdd); // Push the title in an array
         validRecipes = [];
 
+        console.log("1 " + validRecipes);
         for (var i = 0; i < myObjRecipe.length; i++) { // Browse all the recipes
             if (rightList.every(e => myObjRecipe[i].ingredients.includes(e))) { // Check if all the ingredients contained in the ingredients list are included in the ingredients of each recipe in the recipe list
                 validRecipes.push(myObjRecipe[i]); // Push the recipe in the array validRecipes
             }
         }
-
     }
 
     // Display the number of recipes available 
