@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function() {
         var divCurrentCard = event.currentTarget.parentNode.parentNode; // Get the informations of the chosen card after the click on the like button
         var ingredientAdd = divCurrentCard.childNodes[0].textContent; // Get the title of the chosen card
         rightList.push(ingredientAdd); // Push the title in an array
-
         validRecipes = [];
 
         console.log("1 " + validRecipes);
@@ -119,14 +118,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Display the number of recipes available 
     function resultRecipe() {
+        var consultButton = document.querySelector("#consultRecipe");
+        var tryAgain = document.querySelector("#tryAgain");
+        // change parameters of buttons Try Again and Consult the recipes to normal state
+        consultButton.disabled = true;
+        consultButton.style.background = '#3b82f6';
+        tryAgain.style.background = '#3b82f6';
+        if (rightList.length > 0) { // if at least on ingredient is selected
+            if (validRecipes.length < 2) {
+                recipesAvailables = "There is " + validRecipes.length + " recipe available.";
+                consultButton.disabled = false;
+                if (validRecipes.length == 0) {
+                    // change parameters of buttons Try Again and Consult the recipes if there is no recipe available
+                    consultButton.style.background = '#ef4444';
+                    tryAgain.style.background = '#10b981';
+                }
 
-        if (validRecipes.length < 2) {
-            recipesAvailables = "There is " + validRecipes.length + " recipe available.";
-        } else {
-            recipesAvailables = "There are " + validRecipes.length + " recipes available.";
+            } else {
+                recipesAvailables = "There are " + validRecipes.length + " recipes available.";
+                consultButton.style.background = '#10b981';
+                consultButton.disabled = false;
+            }
+            document.getElementById("sentenceRecipesAvailable").innerHTML = recipesAvailables;
         }
-        document.getElementById("sentenceRecipesAvailable").innerHTML = recipesAvailables;
-
     }
 
     // Save the list containing the valid recipes into the local storage
