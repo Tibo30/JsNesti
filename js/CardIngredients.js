@@ -1,11 +1,13 @@
 class CardsIngredients {
 
+    // Construtor of the class CardsIngredients
     constructor(ingredientId, name, url) {
         this.ingredientId = ingredientId;
         this.name = name;
         this.url = url;
     }
 
+    // Creation of the ingredient cards
     createIngredientCards() {
 
         // Creation of all the variables
@@ -14,13 +16,14 @@ class CardsIngredients {
         var titleIngredient = document.createElement("p");
         var titleText = document.createTextNode(this.name);
         var pictureDiv = document.createElement("div");
-        pictureDiv.style["background-image"] = "url(assets/pictures/" + this.url + ")";
         var buttonContainer = document.createElement("div");
         var buttonDislike = document.createElement("button");
         var iconDislike = document.createElement("i");
         var buttonLike = document.createElement("button");
         var iconLike = document.createElement("i");
 
+        // Add the image paths
+        pictureDiv.style["background-image"] = "url(assets/pictures/" + this.url + ")";
 
         // Add style in the various div (with the framework Tailwind)
         // For the top elements

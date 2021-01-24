@@ -1,13 +1,15 @@
+/*************************************************** Import of the polcices **************************************************/
+
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+/*************************************************** Style of the HTML part **************************************************/
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
-/* HTML Part */
 
 body {
     background-attachment: fixed;
@@ -18,6 +20,9 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+
+/* Style of the different parts of the header */
 
 #header {
     text-align: center;
@@ -45,6 +50,9 @@ body {
     text-shadow: 2px 2px 4px #000000;
 }
 
+
+/* Style of the different parts of the ingredient cards */
+
 #containerIngredientCards,
 #containerIngredientCards .cardIngredient {
     width: 25rem;
@@ -59,46 +67,34 @@ body {
     background-color: #f7f7ea;
 }
 
+.cardRecipe:hover {
+    scale: 1.025;
+}
+
+
+/* Style of the paragraphe inside the card*/
+
 .cardRecipe p,
 .cardIngredient p {
     font-family: 'Sofia', cursive;
     font-size: 1.9rem;
 }
 
-.cardRecipe:hover {
-    scale: 1.025;
-}
+
+/* Style of the picture in each card */
 
 .pictureDiv {
     background-size: cover;
     background-position: center;
 }
 
-.cardIngredient button {
-    height: 2rem;
-    width: 10rem;
-}
+
+/* Style of the bottom part of the cards : container buttons and child */
 
 #containerButtons button {
     font-family: 'Noto', cursive;
     font-size: 1.4rem;
     box-shadow: 4px 5px 5px 1px #020202ad;
-}
-
-.buttonDislike {
-    font-size: 4rem;
-}
-
-.iconDislike {
-    bottom: 0.65rem;
-}
-
-.buttonLike {
-    font-size: 4rem;
-}
-
-.iconLike {
-    bottom: 0.4rem;
 }
 
 .cardIngredient button {
@@ -112,6 +108,31 @@ button:hover {
     scale: 1.025;
 }
 
+
+/* Style of the dislike buttons */
+
+.buttonDislike {
+    font-size: 4rem;
+}
+
+.iconDislike {
+    bottom: 0.65rem;
+}
+
+
+/* Style of the like buttons */
+
+.buttonLike {
+    font-size: 4rem;
+}
+
+.iconLike {
+    bottom: 0.4rem;
+}
+
+
+/* Style of the footer */
+
 footer {
     color: #ffffff;
     font-size: 1.10rem;
@@ -119,17 +140,7 @@ footer {
 }
 
 
-/* Javascript Part */
-
-.swipeLeft {
-    animation: swipe-left 0.6s ease-in-out;
-    z-index: 1;
-}
-
-.swipeRight {
-    animation: swipe-right 0.6s ease-in-out;
-    z-index: 1;
-}
+/*************************************************** Style of the Javascript part ***************************************************/
 
 .currentCard {
     position: absolute;
@@ -156,10 +167,6 @@ footer {
     box-shadow: 4px 5px 5px 1px #020202b0;
 }
 
-.cardIngredient {
-    animation-fill-mode: forwards;
-}
-
 #sentenceRecipesAvailable {
     font-family: 'Noto', cursive;
     font-size: 1.7rem;
@@ -167,7 +174,23 @@ footer {
 }
 
 
-/* Keyframes for the transitions */
+/* Amination for the swipe to the left */
+
+.swipeLeft {
+    animation: swipe-left 0.6s ease-in-out;
+    z-index: 1;
+}
+
+
+/* Amination for the swipe to the right */
+
+.swipeRight {
+    animation: swipe-right 0.6s ease-in-out;
+    z-index: 1;
+}
+
+
+/* Keyframes for the left transition */
 
 @keyframes swipe-left {
     0% {
@@ -188,6 +211,9 @@ footer {
     }
 }
 
+
+/* Keyframes for the right transition */
+
 @keyframes swipe-right {
     0% {
         z-index: 100;
@@ -205,4 +231,8 @@ footer {
         opacity: 0;
         z-index: -50;
     }
+}
+
+.cardIngredient {
+    animation-fill-mode: forwards;
 }
