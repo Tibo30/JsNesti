@@ -57,6 +57,9 @@ body {
 #containerIngredientCards .cardIngredient {
     width: 25rem;
     height: 30rem;
+}
+
+#containerIngredientCards .cardIngredient {
     background-color: #f7f7ea;
 }
 
