@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Display the number of recipes available 
     function resultRecipe() {
+
         consultButton.style.background = '#3b82f6';
         tryAgain.style.background = '#3b82f6';
         
@@ -132,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 recipesAvailables = "There is " + validRecipes.length + " recipe available.";
                 consultButton.disabled = false;
                 if (validRecipes.length == 0) {
-                    // change parameters of buttons Try Again and Consult the recipes if there is no recipe available
+                    // Change parameters of buttons Try Again and Consult the recipes if there is no recipe available
                     consultButton.style.background = '#ef4444';
                     tryAgain.style.background = '#10b981';
                     consultButton.disabled = true;
