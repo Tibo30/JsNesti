@@ -53,7 +53,7 @@ body {
 
 /* Style of the different parts of the ingredient cards */
 
-#containerIngredientCards,
+#containerIngredientCards, 
 #containerIngredientCards .cardIngredient {
     width: 25rem;
     height: 30rem;

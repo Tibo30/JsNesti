@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", function() {
     var rightList = [];
     var validRecipes = [];
     var recipesAvailables;
+    var consultButton = document.querySelector("#consultRecipe");
+    var tryAgain = document.querySelector("#tryAgain");
+    
+    // Set normal value of the button recipes available
+    consultButton.disabled = true;
+ 
 
     // Fetch the json file which contains all the ingredients (Using fetch instead of XMLHttpRequest cause it's better!)
     fetch("./js/ingredients.json")
@@ -118,15 +124,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Display the number of recipes available 
     function resultRecipe() {
-        var consultButton = document.querySelector("#consultRecipe");
-        var tryAgain = document.querySelector("#tryAgain");
 
-        // Change parameters of buttons Try Again and Consult the recipes to normal state
-        consultButton.disabled = true;
         consultButton.style.background = '#3b82f6';
         tryAgain.style.background = '#3b82f6';
-
-        if (rightList.length > 0) { // If at least one ingredient is selected
+        
+        if (rightList.length > 0) { // if at least on ingredient is selected
             if (validRecipes.length < 2) {
                 recipesAvailables = "There is " + validRecipes.length + " recipe available.";
                 consultButton.disabled = false;
@@ -134,14 +136,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Change parameters of buttons Try Again and Consult the recipes if there is no recipe available
                     consultButton.style.background = '#ef4444';
                     tryAgain.style.background = '#10b981';
+                    consultButton.disabled = true;
                 }
-
             } else {
                 recipesAvailables = "There are " + validRecipes.length + " recipes available.";
                 consultButton.style.background = '#10b981';
                 consultButton.disabled = false;
             }
             document.getElementById("sentenceRecipesAvailable").innerHTML = recipesAvailables;
+        } else {
+            consultButton.disabled = true;
         }
     }
 
