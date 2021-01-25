@@ -9,10 +9,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var recipesAvailables;
     var consultButton = document.querySelector("#consultRecipe");
     var tryAgain = document.querySelector("#tryAgain");
-    
+
     // Set normal value of the button recipes available
     consultButton.disabled = true;
- 
 
     // Fetch the json file which contains all the ingredients (Using fetch instead of XMLHttpRequest cause it's better!)
     fetch("./js/ingredients.json")
@@ -45,11 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 window.location.href = 'recipe.html';
             });
         })
-
-    // Fetch the json file which contains all the recipes (Using fetch instead of XMLHttpRequest cause it's better!)
-    fetch("./js/recipes.json")
-        .then(response => response.json())
-        .then(data => myObjRecipe = data)
 
     // Identify the cards, store the ones selected and display recipes available
     function swipe(leftOrRight) {
@@ -106,15 +100,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Fetch the json file which contains all the recipes (Using fetch instead of XMLHttpRequest cause it's better!)
+    fetch("./js/recipes.json")
+        .then(response => response.json())
+        .then(data => myObjRecipe = data)
+
     // Compare the list of ingredients chosed by the user with the list of recipes available
     function checkRecipesAvailable() {
 
         var divCurrentCard = event.currentTarget.parentNode.parentNode; // Get the informations of the chosen card after the click on the like button
         var ingredientAdd = divCurrentCard.childNodes[0].textContent; // Get the title of the chosen card
         rightList.push(ingredientAdd); // Push the title in an array
+
         validRecipes = [];
 
-        console.log("1 " + validRecipes);
         for (var i = 0; i < myObjRecipe.length; i++) { // Browse all the recipes
             if (rightList.every(e => myObjRecipe[i].ingredients.includes(e))) { // Check if all the ingredients contained in the ingredients list are included in the ingredients of each recipe in the recipe list
                 validRecipes.push(myObjRecipe[i]); // Push the recipe in the array validRecipes
@@ -122,18 +121,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Display the number of recipes available 
+    // Display the color of the buttons in function of the number of recipes available 
     function resultRecipe() {
 
         consultButton.style.background = '#3b82f6';
         tryAgain.style.background = '#3b82f6';
-        
-        if (rightList.length > 0) { // if at least on ingredient is selected
+
+        if (rightList.length > 0) { // If at least one ingredient is selected
             if (validRecipes.length < 2) {
                 recipesAvailables = "There is " + validRecipes.length + " recipe available.";
                 consultButton.disabled = false;
                 if (validRecipes.length == 0) {
-                    // Change parameters of buttons Try Again and Consult the recipes if there is no recipe available
+                    // Change parameters of buttons Try Again and Consult the recipes if there is no recipes available
                     consultButton.style.background = '#ef4444';
                     tryAgain.style.background = '#10b981';
                     consultButton.disabled = true;
